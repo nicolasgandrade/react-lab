@@ -1,0 +1,39 @@
+@mixin primaryStyle {
+  background-color: $primary02;
+  color: $white;
+  transition: ease 0.2s;
+}
+
+@mixin outlineStyle {
+  background-color: $white;
+  color: $primary02;
+  border: 1px solid $primary02;
+  transition: ease 0.2s;
+}
+
+.btn {
+  width: 300px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &.primary02 {
+    @include primaryStyle;
+
+    &:hover {
+      @include outlineStyle;
+    }
+  }
+
+  &.outline {
+    @include outlineStyle;
+
+    &:hover {
+      @include primaryStyle;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+}
