@@ -1,0 +1,13 @@
+.publicPage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  .logoContainer {
+    position: relative;
+    height: 200px;
+    width: 200px;
+  }
+}

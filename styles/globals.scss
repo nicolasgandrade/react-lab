@@ -5,8 +5,16 @@
 @import '../components/primary-button/primary-button.scss';
 @import '../components/avatar/avatar.scss';
 @import '../components/image-upload/image-upload.scss';
+@import '../components/login/login.scss';
 
 * {
   font-family: $fontRegular;
   font-size: 14px;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+  margin: 0;
 }
