@@ -1,0 +1,16 @@
+.publicInputContainer {
+  .publicInput {
+    display: flex;
+    border-bottom: 1px solid $primary02;
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+
+    input {
+      border: none;
+      outline: none;
+      color: $primary02;
+      flex: 1;
+      margin-left: 8px;
+    }
+  }
+}
