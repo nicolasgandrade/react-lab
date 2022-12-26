@@ -24,11 +24,13 @@
     margin-top: 24px;
 
     p {
-      margin: 0;
+      color: $gray03;
+      margin: 0 0 4px;
     }
 
     a {
       text-decoration: $primary02;
+      font-family: 'Biennale Bold';
     }
   }
 
