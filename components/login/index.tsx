@@ -24,7 +24,7 @@ export default function Login() {
       <div className={`formContainer`}>
         <form action=''>
           <PublicInput
-            inputType='e-mail'
+            inputType='email'
             iconUrl={envelope}
             inputPlaceholder='E-mail'
             onValueChange={(e) => setEmail(e?.target.value)}
@@ -44,7 +44,7 @@ export default function Login() {
 
         <div className='formBottomInfo'>
           <p>Don't have an account?</p>
-          <Link href='/register'>Register now!</Link>
+          <Link href='/registration'>Register now!</Link>
         </div>
       </div>
     </section>

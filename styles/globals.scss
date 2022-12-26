@@ -7,6 +7,7 @@
 @import '../components/image-upload/image-upload.scss';
 @import '../components/login/login.scss';
 @import '../components/public-input/public-input.scss';
+@import '../pages/registration/register.scss';
 
 * {
   font-family: $fontRegular;
@@ -18,4 +19,16 @@ body,
 #__next {
   height: 100%;
   margin: 0;
+}
+
+.onlyDesktop {
+  @media screen and (max-width: calc($desktopBreakpoint - 1px)) {
+    display: none;
+  }
+}
+
+.onlyMobile {
+  @media screen and (min-width: calc($desktopBreakpoint - 1px)) {
+    display: none;
+  }
 }

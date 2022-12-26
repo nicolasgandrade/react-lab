@@ -1,0 +1,22 @@
+.registrationPage {
+  .uploadImageContainer {
+    text-align: center;
+    position: relative;
+    margin-bottom: 48px;
+
+    .avatarPreview {
+      height: 120px;
+      width: 120px;
+      cursor: pointer;
+    }
+
+    &::after {
+      content: url('/icons/camera.svg');
+      position: absolute;
+      left: 90px;
+      bottom: 2px;
+      right: 0;
+      cursor: pointer;
+    }
+  }
+}
