@@ -9,7 +9,7 @@ import PrimaryButton from '../primary-button';
 
 import envelope from '../../public/icons/envelope.svg';
 import key from '../../public/icons/key.svg';
-import cinema from '../../public/images/Movie-Logo-Cinema-PNG.png';
+import logo from '../../public/images/logo_svg.svg';
 
 export default function Login() {
   const [email, setEmail] = useState<string>('');
@@ -18,7 +18,7 @@ export default function Login() {
   return (
     <section className={`loginPage publicPage`}>
       <div className={`logoContainer`}>
-        <Image src={cinema} alt='Logo' fill={true} />
+        <Image src={logo} alt='Logo' fill={true} className='logo' />
       </div>
 
       <div className={`formContainer`}>
