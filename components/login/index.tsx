@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 import PrimaryButton from '../primary-button';
+import { validateEmail } from '../../utils/validators';
 
 import envelope from '../../public/icons/envelope.svg';
 import key from '../../public/icons/key.svg';
@@ -14,6 +15,10 @@ import logo from '../../public/images/logo_svg.svg';
 export default function Login() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+
+  const isFormValid = () => {
+    return !validateEmail(email);
+  };
 
   return (
     <section className={`loginPage publicPage`}>
@@ -29,6 +34,8 @@ export default function Login() {
             inputPlaceholder='E-mail'
             onValueChange={(e) => setEmail(e?.target.value)}
             inputValue={email}
+            hasValidationMessage={!!email && !validateEmail(email)}
+            validationString='Invalid email.'
           />
 
           <PublicInput
@@ -39,7 +46,11 @@ export default function Login() {
             inputValue={password}
           />
 
-          <PrimaryButton text='Login' type='submit' isDisabled={false} />
+          <PrimaryButton
+            text='Login'
+            type='submit'
+            isDisabled={isFormValid()}
+          />
         </form>
 
         <div className='formBottomInfo'>

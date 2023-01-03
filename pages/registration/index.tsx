@@ -5,6 +5,12 @@ import PublicInput from '../../components/public-input';
 import PrimaryButton from '../../components/primary-button';
 
 import { ImageUpload } from '../../components/image-upload';
+import {
+  validateEmail,
+  validateName,
+  validatePassword,
+  validatePasswordConfirm,
+} from '../../utils/validators';
 
 import user from '../../public/icons/user.svg';
 import envelope from '../../public/icons/envelope.svg';
@@ -19,6 +25,15 @@ export default function Registration() {
   const [passwordConfirm, setPasswordConfirm] = useState<string>('');
 
   const [image, setImage] = useState<any>(null);
+
+  const isFormValid = () => {
+    return !(
+      validateName(name) &&
+      validateEmail(email) &&
+      validatePassword(password) &&
+      validatePasswordConfirm(passwordConfirm, password)
+    );
+  };
 
   return (
     <section className='registrationPage publicPage'>
@@ -40,6 +55,8 @@ export default function Registration() {
             inputPlaceholder='Full name'
             onValueChange={(e) => setName(e.target.value)}
             inputValue={name}
+            hasValidationMessage={!!name && !validateName(name)}
+            validationString='Your username must have at least 4 characters.'
           />
           <PublicInput
             iconUrl={envelope}
@@ -47,6 +64,8 @@ export default function Registration() {
             inputPlaceholder='E-mail'
             onValueChange={(e) => setEmail(e.target.value)}
             inputValue={email}
+            hasValidationMessage={!!email && !validateEmail(email)}
+            validationString='Invalid email.'
           />
           <PublicInput
             iconUrl={key}
@@ -54,6 +73,8 @@ export default function Registration() {
             inputPlaceholder='Password'
             onValueChange={(e) => setPassword(e.target.value)}
             inputValue={password}
+            hasValidationMessage={!!password && !validatePassword(password)}
+            validationString='Your password must have at least 3 characters'
           />
           <PublicInput
             iconUrl={key}
@@ -61,12 +82,17 @@ export default function Registration() {
             inputPlaceholder='Password confirmation'
             onValueChange={(e) => setPasswordConfirm(e.target.value)}
             inputValue={passwordConfirm}
+            hasValidationMessage={
+              !!passwordConfirm &&
+              !validatePasswordConfirm(passwordConfirm, password)
+            }
+            validationString='Your passwords must match.'
           />
 
           <PrimaryButton
             text={'Create account'}
             type={'submit'}
-            isDisabled={false}
+            isDisabled={isFormValid()}
           />
         </form>
 

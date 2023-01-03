@@ -32,3 +32,9 @@ body,
     display: none;
   }
 }
+
+.warnContainer {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: $warn;
+}
